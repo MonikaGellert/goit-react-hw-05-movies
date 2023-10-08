@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  flex-basis: calc(100% - 60px) * 4;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.actor {
+  width: 150px;
+}
+
+.actorImg {
+  width: 100px;
+  border-radius: 10px;
+}
