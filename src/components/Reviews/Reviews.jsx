@@ -1,47 +1,28 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { apiKey } from 'API key';
-import css from './Reviews.module.css';
+import { getMovieReview } from 'services/API';
 
 const Reviews = () => {
-  const { reviews, movieId } = useParams();
-  const [reviewsDetails, setReviewsDetails] = useState([]);
-
+  const { id } = useParams();
+  const [review, setReview] = useState([]);
   useEffect(() => {
-    const fetchReviews = async () => {
-      try {
-        const response = await fetch(
-          `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${apiKey}`
-        );
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        setReviewsDetails(data.results);
-        console.log(data.results);
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    };
-
-    fetchReviews();
-  }, [reviews, movieId]);
-
+    getMovieReview(id).then(data => setReview(data));
+  }, [id]);
   return (
-    <div>
-      {reviewsDetails ? (
-        reviewsDetails.map(review => {
-          return (
-            <div key={review.id} className={css.wrapper}>
-              <h2>{review.author}</h2>
-              <p>{review.content}</p>
-            </div>
-          );
-        })
+    <>
+      {review.length > 0 ? (
+        <ul>
+          {review.map(({ id, author, content }) => (
+            <li key={id}>
+              <p>{author}</p>
+              <p>{content}</p>
+            </li>
+          ))}
+        </ul>
       ) : (
-        <p>Loading cast details...</p>
+        "We don't have any reviews for this movie"
       )}
-    </div>
+    </>
   );
 };
 

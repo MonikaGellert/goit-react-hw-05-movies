@@ -10,6 +10,6 @@ export const StyledLink = styled(Link)`
   color: black;
   font-weight: 500;
   gap: 7px;
- 
-    margin-bottom: 20px;
+
+  margin-bottom: 20px;
 `;

@@ -13,7 +13,7 @@ const SharedLayout = () => {
           <Link to="/movies">Movies</Link>
         </nav>
       </Header>
-		  <Suspense fallback={<Loader/>}>
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
     </Container>

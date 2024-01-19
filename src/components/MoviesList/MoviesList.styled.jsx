@@ -13,12 +13,12 @@ export const Card = styled.li`
   width: 300px;
   text-align: center;
   :hover {
-    transform: scale(1.03)
+    transform: scale(1.03);
   }
 `;
 
 export const Title = styled.p`
-  font-size: 30px;
+  font-size: 18px;
   font-weight: 600;
   margin: 0;
   margin-top: 10px;

@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-
 export const Container = styled.div`
   max-width: 960px;
   margin: 0 auto;
@@ -33,7 +32,4 @@ export const Link = styled(NavLink)`
     color: white;
     background-color: #5bc7e9;
   }
-
-   
 `;
-

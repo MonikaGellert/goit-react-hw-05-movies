@@ -33,7 +33,7 @@ export const FormInput = styled.input`
   display: inline-block;
   width: 100%;
   font: inherit;
-  font-size: 30px;
+  font-size: 20px;
   border: none;
   outline: none;
   padding-left: 4px;
@@ -41,6 +41,6 @@ export const FormInput = styled.input`
 
   ::placeholder {
     font: inherit;
-    font-size: 30px;
+    font-size: 18px;
   }
 `;

@@ -13,8 +13,8 @@ export const Form = styled.form`
 
 export const FormButton = styled.button`
   display: inline-block;
-  width: 60px;
-  height: 60px;
+  width: 48px;
+  height: 48px;
   border: 0;
   background-size: 40%;
   background-repeat: no-repeat;
@@ -33,7 +33,7 @@ export const FormInput = styled.input`
   display: inline-block;
   width: 100%;
   font: inherit;
-  font-size: 30px;
+  font-size: 20px;
   border: none;
   outline: none;
   padding-left: 20px;
@@ -41,6 +41,6 @@ export const FormInput = styled.input`
 
   ::placeholder {
     font: inherit;
-    font-size: 30px;
+    font-size: 18px;
   }
 `;

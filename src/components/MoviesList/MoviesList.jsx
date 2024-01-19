@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Img, List, Title, Card } from './MoviesList.styled';
-import img from '../../img/wallpaper-error.jpeg';
+import img from '../../img/wallpaperflare.jpg';
 import PropTypes from 'prop-types';
 
 const MoviesList = ({ movies }) => {

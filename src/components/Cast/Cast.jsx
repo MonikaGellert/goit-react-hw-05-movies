@@ -1,55 +1,38 @@
-import { apiKey } from 'API key';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import css from './Cast.module.css';
-
+import { getMovieCast } from 'services/API';
+import img from '../../img/wallpaperflare.jpg';
+import { List, Poster } from './Cast.styled';
 const Cast = () => {
-  const { cast, movieId } = useParams();
-  const [castDetails, setCastDetails] = useState(null);
-  const MOVIE_LINK = 'https://image.tmdb.org/t/p/w500';
-
+  const { id } = useParams();
+  const [infoCast, setInfoCast] = useState([]);
   useEffect(() => {
-    const fetchCast = async () => {
-      try {
-        const response = await fetch(`
-https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}`);
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        setCastDetails(data.cast);
-        console.log(data.cast);
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    };
-
-    fetchCast();
-  }, [cast, movieId]);
-
+    getMovieCast(id).then(data => setInfoCast(data));
+  }, [id]);
   return (
     <div>
-      <ul className={css.wrapper}>
-        {castDetails ? (
-          castDetails.map(actor => (
-            <li className={css.actor} key={actor.id}>
-              {actor.profile_path ? (
-                <img
-                  className={css.actorImg}
-                  alt="actor"
-                  src={MOVIE_LINK + actor.profile_path}
-                />
-              ) : (
-                <img alt="actor" />
+      <List>
+        {infoCast &&
+          infoCast.map(({ profile_path, name, character, cast_id }) => (
+            <li key={cast_id}>
+              <Poster
+                src={
+                  profile_path
+                    ? `https://image.tmdb.org/t/p/w200${profile_path}`
+                    : img
+                }
+                alt={name}
+              />
+              <p>{name}</p>
+              {character && (
+                <p>
+                  <span>Character:</span>
+                  {character}
+                </p>
               )}
-              <h3>{actor.name}</h3>
-              <p>{actor.character}</p>
             </li>
-          ))
-        ) : (
-          <p>Loading cast details...</p>
-        )}
-      </ul>
+          ))}
+      </List>
     </div>
   );
 };

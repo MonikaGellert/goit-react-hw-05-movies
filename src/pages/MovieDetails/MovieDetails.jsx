@@ -10,7 +10,7 @@ import {
   Title,
   WrapperInfo,
   List,
-} from './MovieDetails.styles';
+} from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const { id } = useParams();

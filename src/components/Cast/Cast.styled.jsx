@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const List = styled.ul`
   padding: 0;
@@ -14,7 +14,7 @@ export const List = styled.ul`
 `;
 
 export const Poster = styled.img`
-width:200px;
-height:300px;
-display:block;
-`
+  width: 200px;
+  height: 300px;
+  display: block;
+`;

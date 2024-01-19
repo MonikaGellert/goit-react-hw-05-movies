@@ -10,7 +10,7 @@ export const Text = styled.p`
   > span {
     display: block;
     margin-bottom: 5px;
-    font-size: 30px;
+    font-size: 18px;
     font-weight: 500;
   }
 `;
